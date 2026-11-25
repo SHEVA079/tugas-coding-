@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurikulum DKV Aesthetic ✨</title>
+    <!-- Mengambil font aesthetic dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Menghubungkan ke file CSS di folder static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Notifikasi Aesthetic (Toast Notification) -->
+    <div id="welcome-toast" class="toast">
+        <span>🌸 Halo selamat datang! Selamat menjelajahi dunia DKV ✨</span>
+        <button onclick="tutupNotif()">✕</button>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="badge">SMK JURUSAN DKV</div>
+        <h1>Eksplorasi Mata Pelajaran<br><span>Desain Komunikasi Visual</span></h1>
+        <p>Kumpulan materi seru untuk mengasah kreativitas, estetika, dan skill digitalmu.</p>
+        
+        <!-- Filter Kelas Sederhana -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterMapel('semua', this)">Semua Kelas</button>
+            <button class="filter-btn" onclick="filterMapel('Kelas X', this)">Kelas X</button>
+            <button class="filter-btn" onclick="filterMapel('Kelas XI', this)">Kelas XI</button>
+            <button class="filter-btn" onclick="filterMapel('Kelas XII', this)">Kelas XII</button>
+        </div>
+    </header>
+
+    <!-- Daftar Kartu Mata Pelajaran -->
+    <main class="container">
+        <div class="grid-mapel">
+            {% for mapel in mapel_list %}
+            <div class="card" data-kelas="{{ mapel.kelas }}">
+                <div class="card-header">
+                    <span class="icon">{{ mapel.ikon }}</span>
+                    <span class="tag-kelas">{{ mapel.kelas }}</span>
+                </div>
+                <h3>{{ mapel.nama }}</h3>
+                <p>{{ mapel.deskripsi }}</p>
+                <div class="software-box">
+                    <small>Tools:</small>
+                    <span>{{ mapel.software }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        <p>Dibuat dengan 💜 & 🩷 oleh Siswi DKV</p>
+    </footer>
+
+    <!-- Menghubungkan ke file JS di folder static -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
