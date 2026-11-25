@@ -1,0 +1,220 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 50%, #fae8ff 100%);
+    --primary-purple: #9333ea;
+    --soft-purple: #d8b4fe;
+    --soft-pink: #f9a8d4;
+    --text-dark: #4a3b5c;
+    --text-muted: #7c6a91;
+    --card-bg: rgba(255, 255, 255, 0.75);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- NOTIFIKASI AESTHETIC --- */
+.toast {
+    position: fixed;
+    top: -100px; /* Sembunyi di atas layar sebelum muncul */
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #f472b6, #c084fc);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(192, 132, 252, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    z-index: 1000;
+    transition: top 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.toast.show {
+    top: 25px;
+}
+
+.toast button {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- HEADER --- */
+header {
+    text-align: center;
+    padding: 80px 20px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.badge {
+    display: inline-block;
+    background: #fce7f3;
+    color: #db2777;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: 1px solid var(--soft-pink);
+    margin-bottom: 15px;
+}
+
+header h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+header h1 span {
+    background: linear-gradient(90deg, #ec4899, #9333ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+/* --- TOMBOL FILTER --- */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: white;
+    border: 1.5px solid var(--soft-purple);
+    color: var(--text-dark);
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: linear-gradient(90deg, #f472b6, #c084fc);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 5px 15px rgba(216, 180, 254, 0.5);
+}
+
+/* --- KARTU MAPEL (GRID) --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.grid-mapel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(147, 51, 234, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(236, 72, 153, 0.15);
+    border-color: var(--soft-pink);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.icon {
+    font-size: 2rem;
+    background: #fdf2f8;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    border: 1px solid #fbcfe8;
+}
+
+.tag-kelas {
+    background: #f3e8ff;
+    color: #7e22ce;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.card h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #3b284d;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.software-box {
+    background: rgba(253, 242, 248, 0.8);
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    border: 1px dashed var(--soft-pink);
+}
+
+.software-box small {
+    color: #db2777;
+    font-weight: 600;
+    display: block;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
